@@ -162,7 +162,8 @@ private:
         if (!(!actual == !other))
         {
             return false;
-        } else if (!actual && !other)
+        }
+        else if (!actual && !other)
         {
             return true;
         }
@@ -181,6 +182,21 @@ private:
         }
 
         return isStrictlyBinaryRec(node->left) == isStrictlyBinaryRec(node->right) ? true : false;
+    }
+
+    bool equalsRec(Node *actual, Node *other)
+    {
+        if (!actual && !other)
+        {
+            return true;
+        }
+
+        if (actual->data != other->data)
+        {
+            return false;
+        }
+
+        return equalsRec(actual->left, other->left) && equalsRec(actual->right, other->right);
     }
 
 public:
@@ -258,15 +274,20 @@ public:
 
     bool isSimilar(const BinarySearchTree &other)
     {
-        if (!this->root && !other.root)
-        {
-            return true;
-        }
         return isSimilarRec(this->root, other.root);
     }
 
     bool isStrictlyBinary()
     {
         return isStrictlyBinaryRec(root);
+    }
+
+    bool equals(const BinarySearchTree &other)
+    {
+        if (!isSimilar(other))
+        {
+            return false;
+        }
+        return equalsRec(this->root, other.root);
     }
 };
