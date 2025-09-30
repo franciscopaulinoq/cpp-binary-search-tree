@@ -159,15 +159,18 @@ private:
 
     bool isSimilarRec(Node *actual, Node *other)
     {
-        if (!(actual && other))
+        if (!(!actual == !other))
         {
             return false;
+        } else if (!actual && !other)
+        {
+            return true;
         }
 
         bool subLeft = isSimilarRec(actual->left, other->left);
         bool subRight = isSimilarRec(actual->right, other->right);
 
-        return subLeft == subRight ? true : false;
+        return subLeft && subRight ? true : false;
     }
 
     bool isStrictlyBinaryRec(Node *node)
