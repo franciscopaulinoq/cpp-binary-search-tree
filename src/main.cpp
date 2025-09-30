@@ -1,5 +1,6 @@
 #include <iostream>
 #include <BinarySearchTree.hpp>
+#include <string>
 
 using namespace std;
 
@@ -35,6 +36,19 @@ int main() {
     bstA.inorder();
     bstA.remove(20);
     bstA.inorder();
+
+    cout << "\n--- 6. Altura da Arvore ---\n";
+    BinarySearchTree<int> bstB;
+    bstB.insert(20);
+    bstB.insert(10);
+    bstB.insert(21);
+    bstB.insert(23);
+    bstB.insert(15);
+    bstB.insert(13);
+    bstB.insert(18);
+    bstB.insert(16);
+
+    cout << "Altura da arvore bstB: " << bstB.height();
     
     return 0;
 }

@@ -117,6 +117,24 @@ private:
         inorderRec(node->right);
     }
 
+    int max(int heightLeft, int heightRight)
+    {
+        return heightLeft > heightRight ? heightLeft : heightRight;
+    }
+
+    int heightRec(Node *node)
+    {
+        if (!node)
+        {
+            return -1;
+        }
+
+        int heightLeft = heightRec(node->left);
+        int heightRight = heightRec(node->right);
+
+        return 1 + max(heightLeft, heightRight);
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -173,5 +191,10 @@ public:
     {
         inorderRec(root);
         std::cout << std::endl;
+    }
+
+    int height()
+    {
+        return heightRec(root);
     }
 };
