@@ -71,5 +71,17 @@ int main()
 
     cout << "A arvore bstC e similar a bstD? " << (bstC.isSimilar(bstD) ? "sim" : "nao") << endl;
 
+    cout << "\n--- 10. Arvore estritamente binaria ---\n";
+
+    BinarySearchTree<int> bstE;
+    bstE.insert(20);
+    bstE.insert(10);
+    bstE.insert(21);
+    bstE.insert(15);
+    bstE.insert(9);
+    bstE.insert(25);
+
+    cout << "A arvore bstE e estritamente binaria? " << (bstE.isStrictlyBinary() ? "sim" : "nao") << endl;
+
     return 0;
 }

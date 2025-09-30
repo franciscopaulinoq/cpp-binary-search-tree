@@ -170,6 +170,16 @@ private:
         return subLeft == subRight ? true : false;
     }
 
+    bool isStrictlyBinaryRec(Node *node)
+    {
+        if (!node)
+        {
+            return false;
+        }
+
+        return isStrictlyBinaryRec(node->left) == isStrictlyBinaryRec(node->right) ? true : false;
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -250,5 +260,10 @@ public:
             return true;
         }
         return isSimilarRec(this->root, other.root);
+    }
+
+    bool isStrictlyBinary()
+    {
+        return isStrictlyBinaryRec(root);
     }
 };
