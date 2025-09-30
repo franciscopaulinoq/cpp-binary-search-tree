@@ -97,5 +97,9 @@ int main()
 
     cout << "A arvore bstX e igual a bstY? " << (bstX.equals(bstY) ? "sim" : "nao") << endl;
 
+    cout << "\n--- 12. Maior valor da arvore ---\n";
+
+    cout << "O maior valor da arvore bstB e: " << bstB.getMaxValue() << endl;
+
     return 0;
 }

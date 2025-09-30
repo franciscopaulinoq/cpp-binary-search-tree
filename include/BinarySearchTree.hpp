@@ -199,6 +199,20 @@ private:
         return equalsRec(actual->left, other->left) && equalsRec(actual->right, other->right);
     }
 
+    T getMaxValueRec(Node *node)
+    {
+        if (!node)
+        {
+            throw std::out_of_range("Arvore vazia");
+        }
+        if (!node->right)
+        {
+            return node->data;
+        }
+
+        return getMaxValueRec(node->right);
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -289,5 +303,10 @@ public:
             return false;
         }
         return equalsRec(this->root, other.root);
+    }
+
+    T getMaxValue()
+    {
+        return getMaxValueRec(root);
     }
 };
