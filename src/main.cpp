@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     cout << "--- 1. Criacao da Binary Search Tree (BST) ---\n";
     BinarySearchTree<int> bstA;
     bstA.insert(20);
@@ -17,16 +18,14 @@ int main() {
     bstA.inorder();
 
     cout << "\n--- 2. Verificar ocorrencia de valores ---\n";
-    cout << "Existe valor 5? " << 
-                        (bstA.search(5) ? "sim" : "nao") << endl;
-    cout << "Existe valor 21? " << 
-                        (bstA.search(21) ? "sim" : "nao") << endl;
-    
+    cout << "Existe valor 5? " << (bstA.search(5) ? "sim" : "nao") << endl;
+    cout << "Existe valor 21? " << (bstA.search(21) ? "sim" : "nao") << endl;
+
     cout << "\n--- 3. Remocao de no folha ---\n";
     bstA.inorder();
     bstA.remove(23);
     bstA.inorder();
-    
+
     cout << "\n--- 4. Remocao de no com um filho ---\n";
     bstA.inorder();
     bstA.remove(10);
@@ -57,6 +56,20 @@ int main() {
     cout << "\n--- 8. Folhas da Arvore ---\n";
 
     cout << "Quantidade de folhas da arvore bstB: " << bstB.countLeaves() << endl;
-    
+
+    cout << "\n--- 9. Similaridade de arvores ---\n";
+
+    BinarySearchTree<int> bstC;
+    bstC.insert(20);
+    bstC.insert(10);
+    bstC.insert(21);
+
+    BinarySearchTree<int> bstD;
+    bstD.insert(15);
+    bstD.insert(16);
+    bstD.insert(18);
+
+    cout << "A arvore bstC e similar a bstD? " << (bstC.isSimilar(bstD) ? "sim" : "nao") << endl;
+
     return 0;
 }

@@ -157,6 +157,19 @@ private:
         return countLeavesRec(node->left) + countLeavesRec(node->right);
     }
 
+    bool isSimilarRec(Node *actual, Node *other)
+    {
+        if (!(actual && other))
+        {
+            return false;
+        }
+
+        bool subLeft = isSimilarRec(actual->left, other->left);
+        bool subRight = isSimilarRec(actual->right, other->right);
+
+        return subLeft == subRight ? true : false;
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -228,5 +241,14 @@ public:
     int countLeaves()
     {
         return countLeavesRec(root);
+    }
+
+    bool isSimilar(const BinarySearchTree &other)
+    {
+        if (!this->root && !other.root)
+        {
+            return true;
+        }
+        return isSimilarRec(this->root, other.root);
     }
 };
