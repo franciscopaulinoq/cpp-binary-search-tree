@@ -53,6 +53,10 @@ int main() {
     cout << "\n--- 7. Nos da Arvore ---\n";
 
     cout << "Quantidade de nos da arvore bstB: " << bstB.countNodes() << endl;
+
+    cout << "\n--- 8. Folhas da Arvore ---\n";
+
+    cout << "Quantidade de folhas da arvore bstB: " << bstB.countLeaves() << endl;
     
     return 0;
 }

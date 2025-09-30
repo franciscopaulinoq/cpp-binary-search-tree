@@ -142,6 +142,21 @@ private:
         return 1 + countNodesRec(node->left) + countNodesRec(node->right);
     }
 
+    int countLeavesRec(Node *node)
+    {
+        if (!node)
+        {
+            return 0;
+        }
+
+        if (!node->left && !node->right)
+        {
+            return 1;
+        }
+
+        return countLeavesRec(node->left) + countLeavesRec(node->right);
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -208,5 +223,10 @@ public:
     int countNodes()
     {
         return countNodesRec(root);
+    }
+
+    int countLeaves()
+    {
+        return countLeavesRec(root);
     }
 };
