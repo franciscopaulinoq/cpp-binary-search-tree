@@ -48,7 +48,11 @@ int main() {
     bstB.insert(18);
     bstB.insert(16);
 
-    cout << "Altura da arvore bstB: " << bstB.height();
+    cout << "Altura da arvore bstB: " << bstB.height() << endl;
+
+    cout << "\n--- 7. Nos da Arvore ---\n";
+
+    cout << "Quantidade de nos da arvore bstB: " << bstB.countNodes() << endl;
     
     return 0;
 }

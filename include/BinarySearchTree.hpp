@@ -129,10 +129,17 @@ private:
             return -1;
         }
 
-        int heightLeft = heightRec(node->left);
-        int heightRight = heightRec(node->right);
+        return 1 + max(heightRec(node->left), heightRec(node->right));
+    }
 
-        return 1 + max(heightLeft, heightRight);
+    int countNodesRec(Node *node)
+    {
+        if (!node)
+        {
+            return 0;
+        }
+
+        return 1 + countNodesRec(node->left) + countNodesRec(node->right);
     }
 
 public:
@@ -196,5 +203,10 @@ public:
     int height()
     {
         return heightRec(root);
+    }
+
+    int countNodes()
+    {
+        return countNodesRec(root);
     }
 };
