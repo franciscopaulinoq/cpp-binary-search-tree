@@ -241,6 +241,20 @@ protected:
         return node;
     }
 
+    void prettyPrintRec(Node *node, const std::string &prefix, bool isLeft) const
+    {
+        if (!node)
+        {
+            return;
+        }
+
+        prettyPrintRec(node->right, prefix + (isLeft ? "|   " : "    "), false);
+
+        std::cout << prefix << (isLeft ? "|___ " : "|--- ") << node->data << std::endl;
+
+        prettyPrintRec(node->left, prefix + (isLeft ? "|   " : "    "), true);
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -343,5 +357,15 @@ public:
     {
         Node *newNode = new Node(T(std::forward<Args>(args)...));
         root = emplaceRec(this->root, newNode);
+    }
+
+    void prettyPrint() const
+    {
+        if (!root)
+        {
+            std::cout << "A arvore esta vazia." << std::endl;
+            return;
+        }
+        prettyPrintRec(root, "", false);
     }
 };

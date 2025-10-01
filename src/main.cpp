@@ -147,5 +147,34 @@ int main()
     salesHistory.inorder();
     cout << "\n--------------------------------------------\n";
 
+    cout << "\n--- 14. Vizualizacao da arvore ---\n";
+
+    BinarySearchTree<int> bst;
+
+    cout << "\n--- Inserindo 20 ---\n";
+    bst.insert(20);
+    bst.prettyPrint();
+    cout << "\n--------------------\n";
+
+    cout << "--- Inserindo 10 ---\n";
+    bst.insert(10);
+    bst.prettyPrint();
+    cout << "\n--------------------\n";
+    
+    cout << "--- Inserindo 30 ---\n";
+    bst.insert(30);
+    bst.prettyPrint();
+    cout << "\n--------------------\n";
+
+    cout << "--- Inserindo 25 ---\n";
+    bst.insert(25);
+    bst.prettyPrint();
+    cout << "\n--------------------\n";
+
+    cout << "--- Inserindo 35 ---\n";
+    bst.insert(35);
+    bst.prettyPrint();
+    cout << "\n--------------------\n";
+
     return 0;
 }
