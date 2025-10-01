@@ -9,6 +9,8 @@ Em teoria dos grafos, uma árvore é um grafo que atende a duas condições esse
 1. **É conexo**: Todos os pontos (vértices) estão ligados entre si.
 2. **É acíclico**: Não possui ciclos, ou seja, não há caminhos fechados.
 
+Uma Árvore Binária é um caso particular de árvore onde cada nó tem, no máximo, dois filhos.
+
 ## Estrutura de Diretórios
 
 ```
@@ -17,7 +19,9 @@ Em teoria dos grafos, uma árvore é um grafo que atende a duas condições esse
 ├── README.md          # Este arquivo
 ├── build/             # (Vazio) Onde os executáveis são criados
 ├── include/
-│   └── BinarySearchTree.hpp      # Interface e implementação da classe template
+│   ├── BinarySearchTree.hpp      # Interface e implementação da classe template
+│   ├── Sale.hpp                  # Interface e implementação da classe de vendas
+│   └── SalesHistoryTree.hpp      # Implementação especializada de uma BinarySearchTree para histórico de vendas
 └── src/
     └── main.cpp       # Código principal que demonstra o uso da Árvore
 ```
@@ -66,23 +70,23 @@ Após executar o programa, você verá a seguinte saída no terminal, confirmand
 ```
 --- 1. Criacao da Binary Search Tree (BST) ---
 Imprimindo valores em ordem da BST A: 
-10 15 20 21 23 
+10; 15; 20; 21; 23;
 
 --- 2. Verificar ocorrencia de valores ---
 Existe valor 5? nao
 Existe valor 21? sim
 
 --- 3. Remocao de no folha ---
-10 15 20 21 23 
-10 15 20 21 
+10; 15; 20; 21; 23;
+10; 15; 20; 21;
 
 --- 4. Remocao de no com um filho ---
-10 15 20 21 
-15 20 21
+10; 15; 20; 21;
+15; 20; 21;
 
 --- 5. Remocao de no com dois filhos ---
-15 20 21
-15 21
+15; 20; 21;
+15; 21;
 
 --- 6. Altura da Arvore ---
 Altura da arvore bstB: 4
@@ -104,4 +108,24 @@ A arvore bstX e igual a bstY? sim
 
 --- 12. Maior valor da arvore ---
 O maior valor da arvore bstB e: 23
+
+--- 13. Testando a SalesHistoryTree ---
+## Historico de Vendas (usando metodo herdado 'inorder'):
+Sale(Date: 20220820, Total: 950.25); Sale(Date: 20230410, Total: 850); Sale(Date: 20230915, Total: 1200.5); Sale(Date: 20230920, Total: 1800); Sale(Date: 20231105, Total: 2500.75);
+
+--------------------------------------------
+## Testando Tendencia de Vendas:
+Resultado: Tendencia de ALTA
+
+--------------------------------------------
+## Testando Maior Venda Diaria:
+Maior venda registrada: Sale(Date: 20231105, Total: 2500.75)
+
+--------------------------------------------
+## Removendo vendas anteriores a 20230101...
+
+Historico Apos Remocao:
+Sale(Date: 20230410, Total: 850); Sale(Date: 20230915, Total: 1200.5); Sale(Date: 20230920, Total: 1800); Sale(Date: 20231105, Total: 2500.75);
+
+--------------------------------------------
 ```
