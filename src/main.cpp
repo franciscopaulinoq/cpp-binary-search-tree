@@ -105,11 +105,11 @@ int main()
 
     SalesHistoryTree salesHistory;
 
-    salesHistory.insert(Sale(20230915, 1200.50));
-    salesHistory.insert(Sale(20230410, 850.00));
-    salesHistory.insert(Sale(20231105, 2500.75));
-    salesHistory.insert(Sale(20220820, 950.25));
-    salesHistory.insert(Sale(20230920, 1800.00));
+    salesHistory.emplace(20230915, 1200.50);
+    salesHistory.emplace(20230410, 850.00);
+    salesHistory.emplace(20231105, 2500.75);
+    salesHistory.emplace(20220820, 950.25);
+    salesHistory.emplace(20230920, 1800.00);
 
     cout << "## Historico de Vendas (usando metodo herdado 'inorder'):" << endl;
     salesHistory.inorder();

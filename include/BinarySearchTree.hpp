@@ -213,6 +213,29 @@ protected:
         return getMaxValueRec(node->right);
     }
 
+    Node *emplaceRec(Node *node, Node *newNode)
+    {
+        if (!node)
+        {
+            return newNode;
+        }
+
+        if (newNode->data < node->data)
+        {
+            node->left = emplaceRec(node->left, newNode);
+        }
+        else if (newNode->data > node->data)
+        {
+            node->right = emplaceRec(node->right, newNode);
+        }
+        else
+        {
+            delete newNode;
+        }
+
+        return node;
+    }
+
 public:
     BinarySearchTree() : root(nullptr) {}
 
@@ -308,5 +331,12 @@ public:
     T getMaxValue()
     {
         return getMaxValueRec(root);
+    }
+
+    template <typename... Args>
+    void emplace(Args &&...args)
+    {
+        Node *newNode = new Node(T(std::forward<Args>(args)...));
+        root = emplaceRec(this->root, newNode);
     }
 };

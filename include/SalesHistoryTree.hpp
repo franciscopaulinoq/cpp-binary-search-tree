@@ -2,7 +2,6 @@
 
 #include "BinarySearchTree.hpp"
 #include "Sale.hpp"
-#include <string>
 
 class SalesHistoryTree : public BinarySearchTree<Sale>
 {
