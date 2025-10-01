@@ -71,7 +71,8 @@ private:
 
         if (node->data.getDate() < referenceDate)
         {
-            return this->removeRec(node, node->data);
+            Node *newNode = this->removeRec(node, node->data);
+            return newNode;
         }
 
         return node;

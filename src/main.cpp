@@ -124,10 +124,13 @@ int main()
         break;
     case SalesHistoryTree::DOWN:
         cout << "Resultado: Tendencia de BAIXA" << endl;
+        break;
     case SalesHistoryTree::STABLE:
         cout << "Resultado: Tendencia de ESTABILIDADE" << endl;
+        break;
     case SalesHistoryTree::DATA_MISSING:
         cout << "Resultado: Data(s) nao registradas" << endl;
+        break;
     default:
         break;
     }
