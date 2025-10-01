@@ -176,12 +176,17 @@ protected:
 
     bool isStrictlyBinaryRec(Node *node)
     {
-        if (!node)
+        if (!node || (!node->left && !node->right))
         {
-            return false;
+            return true;
         }
 
-        return isStrictlyBinaryRec(node->left) == isStrictlyBinaryRec(node->right) ? true : false;
+        if (node->left && node->right)
+        {
+            return isStrictlyBinaryRec(node->left) && isStrictlyBinaryRec(node->right);
+        }
+
+        return false;
     }
 
     bool equalsRec(Node *actual, Node *other)
