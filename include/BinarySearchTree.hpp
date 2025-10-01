@@ -113,7 +113,7 @@ protected:
         if (!node)
             return;
         inorderRec(node->left);
-        std::cout << node->data << " ";
+        std::cout << node->data << "; ";
         inorderRec(node->right);
     }
 
@@ -203,7 +203,7 @@ protected:
     {
         if (!node)
         {
-            throw std::out_of_range("Arvore vazia");
+            throw std::out_of_range("A arvore esta vazia.");
         }
         if (!node->right)
         {

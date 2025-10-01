@@ -1,5 +1,5 @@
 #include <iostream>
-#include <BinarySearchTree.hpp>
+#include <SalesHistoryTree.hpp>
 #include <Sale.hpp>
 
 using namespace std;
@@ -101,16 +101,48 @@ int main()
 
     cout << "O maior valor da arvore bstB e: " << bstB.getMaxValue() << endl;
 
-    cout << "\n--- 13. Testando objeto Sale ---\n";
+    cout << "\n--- 13. Testando a SalesHistoryTree ---\n";
 
-    Sale testA(20221009, 2500.00);
-    Sale testB(20221010, 2500.00);
+    SalesHistoryTree salesHistory;
 
-    cout << testA;
-    cout << "\ntestA e igual a testB? " << (testA == testB ? "sim" : "nao") << endl;
-    cout << "testA e diferente de testB? " << (testA != testB ? "sim" : "nao") << endl;
-    cout << "testA e menor que testB? " << (testA < testB ? "sim" : "nao") << endl;
-    cout << "testA e maior que testB? " << (testA > testB ? "sim" : "nao") << endl;
+    salesHistory.insert(Sale(20230915, 1200.50));
+    salesHistory.insert(Sale(20230410, 850.00));
+    salesHistory.insert(Sale(20231105, 2500.75));
+    salesHistory.insert(Sale(20220820, 950.25));
+    salesHistory.insert(Sale(20230920, 1800.00));
+
+    cout << "## Historico de Vendas (usando metodo herdado 'inorder'):" << endl;
+    salesHistory.inorder();
+    cout << "\n--------------------------------------------\n";
+
+    cout << "## Testando Tendencia de Vendas:" << endl;
+    auto trend = salesHistory.getSalesTrend(20230915, 20230920);
+    switch (trend)
+    {
+    case SalesHistoryTree::UP:
+        cout << "Resultado: Tendencia de ALTA" << endl;
+        break;
+    case SalesHistoryTree::DOWN:
+        cout << "Resultado: Tendencia de BAIXA" << endl;
+    case SalesHistoryTree::STABLE:
+        cout << "Resultado: Tendencia de ESTABILIDADE" << endl;
+    case SalesHistoryTree::DATA_MISSING:
+        cout << "Resultado: Data(s) nao registradas" << endl;
+    default:
+        break;
+    }
+    cout << "\n--------------------------------------------\n";
+
+    cout << "## Testando Maior Venda Diaria:" << endl;
+    Sale highest = salesHistory.findHighestSale();
+    cout << "Maior venda registrada: " << highest << endl;
+    cout << "\n--------------------------------------------\n";
+
+    cout << "## Removendo vendas anteriores a 20230101..." << endl;
+    salesHistory.removeOlderThan(20230101);
+    cout << "\nHistorico Apos Remocao:" << endl;
+    salesHistory.inorder();
+    cout << "\n--------------------------------------------\n";
 
     return 0;
 }
