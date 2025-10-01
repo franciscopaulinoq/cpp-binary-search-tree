@@ -9,7 +9,7 @@ private:
     double total;
 
 public:
-    Sale(int date, double total) : date(date), total(total) {}
+    Sale(int d = 0, double t = 0.0) : date(d), total(t) {}
 
     int getDate() const
     {

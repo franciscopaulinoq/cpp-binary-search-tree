@@ -5,7 +5,7 @@
 template <typename T>
 class BinarySearchTree
 {
-private:
+protected:
     struct Node
     {
         T data;
